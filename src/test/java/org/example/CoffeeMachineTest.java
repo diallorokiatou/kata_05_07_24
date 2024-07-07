@@ -10,7 +10,14 @@ class CoffeeMachineTest {
     void should_order_chocolat_whith_no_sugar_and_no_stick(){
         Order order = new Order(Drink.CHOCOLAT, 0);
 
-        assertEquals(order.showMessage(), "Drink maker makes 1 chocolate with no sugar and therefore no stick");
+        assertEquals("Drink maker makes 1 chocolate with no sugar and therefore no stick", order.showMessage());
+    }
+
+    @Test
+    void should_order_a_tea_with_1_sugar_and_a_stick(){
+        Order order = new Order(Drink.TEA, 1);
+
+        assertEquals("Drink maker makes 1 tea with 1 sugar and a stick", order.showMessage());
     }
 
 
