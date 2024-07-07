@@ -1,7 +1,10 @@
 package org.example;
 
 public enum Drink {
-    CHOCOLATE(0.5), COFFEE(0.6), TEA(0.4);
+    ORANGE(0.6),
+    CHOCOLATE(0.5),
+    COFFEE(0.6),
+    TEA(0.4);
 
     private final double amount;
 

@@ -7,6 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CoffeeMachineTest {
 
     @Test
+    void should_order_orange_juice_with_no_sugar_and_no_stick(){
+        Order order = new Order(Drink.ORANGE, 0, 0.6);
+
+        assertEquals("Drink maker will make one orange juice", order.sendMessage());
+    }
+
+    @Test
     void should_not_make_drink_when_amount_is_correct(){
         Order order = new Order(Drink.CHOCOLATE, 0, 0.1);
 
