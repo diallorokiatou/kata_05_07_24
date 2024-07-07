@@ -4,7 +4,7 @@ public class Order {
     private final Drink drinkType;
     private final int sugarNumber;
 
-    public Order(Drink drinkType, int sugarNumber) {
+    public Order(Drink drinkType, int sugarNumber, double v) {
         this.drinkType = drinkType;
         this.sugarNumber = sugarNumber;
     }
