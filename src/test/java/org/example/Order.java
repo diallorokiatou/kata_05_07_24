@@ -1,6 +1,7 @@
 package org.example;
 
 public class Order {
+    private String message;
     private Drink drinkType;
     private int sugarNumber;
     private Boolean stick;
