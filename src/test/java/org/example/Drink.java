@@ -1,7 +1,7 @@
 package org.example;
 
 public enum Drink {
-    CHOCOLAT, TEA;
+    CHOCOLATE, COFFEE, TEA
 
 
 }
