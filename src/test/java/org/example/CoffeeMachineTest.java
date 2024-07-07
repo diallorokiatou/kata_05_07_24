@@ -5,6 +5,21 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CoffeeMachineTest {
+    @Test
+    void should_print_report(){
+        CoffeeMachine coffeeMachine = new CoffeeMachine();
+        coffeeMachine.addOrder(new Order(Drink.Th, 2, 0.6));
+        coffeeMachine.addOrder(new Order(Drink.Th, 2, 0.6));
+        coffeeMachine.addOrder(new Order(Drink.Th, 2, 0.6));
+        coffeeMachine.addOrder(new Order(Drink.T, 2, 0.6));
+        coffeeMachine.addOrder(new Order(Drink.C, 2, 0.6));
+
+        assertEquals("""
+                3 extra hot chocolat\s
+                1 tea
+                 +1 coffee\s
+                 +Total amout ; 2,2\s""", coffeeMachine.printReport());
+    }
 
     @Test
     void should_order_extra_hot_tea_with_2_sugar_and_a_stick(){
