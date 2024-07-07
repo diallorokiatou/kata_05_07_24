@@ -15,14 +15,11 @@ public class Order {
     public String sendMessage(){
         if(message != null) return message;
         if(drinkType == Drink.O){
-            return "Drink maker will make one "  + drinkType.description();
+            return "Drink maker will make "  + drinkType.description();
         }
         if(sugarNumber == 0) {
-           return "Drink maker makes 1 " +  drinkType.description() + " with no sugar and therefore no stick";
+           return "Drink maker makes " +  drinkType.description() + " with no sugar and therefore no stick";
         }
-        if(sugarNumber == 1) {
-            return "Drink maker makes 1 "  +  drinkType.description() + " with " + sugarNumber  + " sugar and a stick";
-        }
-        return "Drink maker makes 1 "  +  drinkType.description() + " with " + sugarNumber  + " sugars and a stick";
+        return "Drink maker makes "  +  drinkType.description() + " with " + sugarNumber  + " sugar and a stick";
     }
 }
