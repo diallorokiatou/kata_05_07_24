@@ -18,10 +18,7 @@ class TakeHomeCalculator {
         Money total = first;
 
         for (Money next : monies) {
-            if (!next.currency.equals(total.currency)) {
-                throw new Incalculable();
-            }
-            total = new Money(total.value + next.value, next.currency);
+            total = total.plus(next);
         }
 
         Double amount = total.value * (percent / 100d);
@@ -42,5 +39,11 @@ class TakeHomeCalculator {
             this.currency = currency;
         }
 
+        private Money plus(Money next) {
+            if (!next.currency.equals(this.currency)) {
+                throw new Incalculable();
+            }
+            return new Money(this.value + next.value, next.currency);
+        }
     }
 }
