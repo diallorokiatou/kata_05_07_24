@@ -9,12 +9,12 @@ public class TakeHomeCalculatorTest {
 
     @Test
     public void canCalculateTax() throws Exception {
-        Integer amount = new TakeHomeCalculator(10).netAmount(new Money(40, "GBP"), new Money(50, "GBP"), new Money(60, "GBP")).amount();
+        Integer amount = new TakeHomeCalculator(10, new Money(40, "GBP"), new Money(50, "GBP"), new Money(60, "GBP")).netAmount().amount();
         assertEquals(135, amount.intValue());
     }
 
     @Test
     public void cannotSumDifferentCurrencies() throws Exception {
-        assertThrows(Incalculable.class, () -> new TakeHomeCalculator(10).netAmount(new Money(4, "GBP"), new Money(5, "USD")));
+        assertThrows(Incalculable.class, () -> new TakeHomeCalculator(10, new Money(4, "GBP"), new Money(5, "USD")).netAmount());
     }
 }
