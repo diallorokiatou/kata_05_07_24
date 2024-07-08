@@ -10,18 +10,14 @@ class TakeHomeCalculator {
         this.percent = percent;
     }
 
-    Pair<Integer, String> netAmount(Pair<Integer, String>... rest) {
-        String currency = rest[0].currency();
+    Pair<Integer, String> netAmount(Pair<Integer, String>... cart) {
+        String currency = cart[0].currency();
 
-        if(!Arrays.stream(rest).map(money -> money.currency()).allMatch(currencyOver -> currencyOver == currency)) throw  new Incalculable();
-
-
+        if(!Arrays.stream(cart).map(money -> money.currency()).allMatch(currencyOver -> currencyOver == currency)) throw  new Incalculable();
 
         Pair<Integer, String> total = new Pair<>(0, currency);
 
-
-
-        for (Pair<Integer, String> next : rest) {
+        for (Pair<Integer, String> next : cart) {
             total = new Pair<>(total.amount() + next.amount(), next.currency());
         }
 
