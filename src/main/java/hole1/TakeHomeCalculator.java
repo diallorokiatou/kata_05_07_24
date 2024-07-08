@@ -8,9 +8,9 @@ class TakeHomeCalculator {
         this.percent = percent;
     }
 
-    Pair<Integer, String> netAmount(Pair<Integer, String> first, Pair<Integer, String>... rest) {
+    Pair<Integer, String> netAmount(Pair<Integer, String>... rest) {
 
-        Pair<Integer, String> total = first;
+        Pair<Integer, String> total = new Pair<>(0, rest[0].currency());
 
         for (Pair<Integer, String> next : rest) {
             if (!next.currency().equals(total.currency())) {
@@ -23,10 +23,10 @@ class TakeHomeCalculator {
         }
 
         Double amount = total.amount() * (percent / 100d);
-        Pair<Integer, String> tax = new Pair<>(amount.intValue(), first.currency());
+        Pair<Integer, String> tax = new Pair<>(amount.intValue(), rest[0].currency());
 
         if (total.currency().equals(tax.currency())) {
-            return new Pair<>(total.amount() - tax.amount(), first.currency());
+            return new Pair<>(total.amount() - tax.amount(), rest[0].currency());
         }
         throw new Incalculable();
     }

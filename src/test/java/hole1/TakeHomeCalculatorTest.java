@@ -9,8 +9,8 @@ public class TakeHomeCalculatorTest {
 
     @Test
     public void canCalculateTax() throws Exception {
-        Integer first = new TakeHomeCalculator(10).netAmount(new Pair<>(40, "GBP"), new Pair<>(50, "GBP"), new Pair<>(60, "GBP")).amount();
-        assertEquals(135, first.intValue());
+        Integer amount = new TakeHomeCalculator(10).netAmount(new Pair<>(40, "GBP"), new Pair<>(50, "GBP"), new Pair<>(60, "GBP")).amount();
+        assertEquals(135, amount.intValue());
     }
 
     @Test
