@@ -21,7 +21,7 @@ class TakeHomeCalculator {
     }
 
     private Money calculateTax(Money total) {
-        Double amount = total.amount() * (percent / 100d);
-        return new Money(amount.intValue(), total.currency());
+        double amount = total.amount() * (percent / 100d);
+        return new Money((int) amount, total.currency());
     }
 }
