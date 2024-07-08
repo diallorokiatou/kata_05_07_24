@@ -10,18 +10,18 @@ class TakeHomeCalculator {
         this.percent = percent;
     }
 
-    Pair<Integer, String> netAmount(Pair<Integer, String>... cart) {
+    Money netAmount(Money... cart) {
         String currency = cart[0].currency();
-        if(!Arrays.stream(cart).map(Pair::currency).allMatch(currencyOver -> currencyOver.equals(currency))){
+        if(!Arrays.stream(cart).map(Money::currency).allMatch(currencyOver -> currencyOver.equals(currency))){
             throw  new Incalculable();
         }
-        Pair<Integer, String> total = new Pair<>(Arrays.stream(cart).map(Pair::amount).reduce(0, Integer::sum), currency);
-        Pair<Integer, String> tax = calculateTax(total);
-        return new Pair<>(total.amount() - tax.amount(), currency);
+        Money total = new Money(Arrays.stream(cart).map(Money::amount).reduce(0, Integer::sum), currency);
+        Money tax = calculateTax(total);
+        return new Money(total.amount() - tax.amount(), currency);
     }
 
-    private Pair<Integer, String> calculateTax(Pair<Integer, String> total) {
+    private Money calculateTax(Money total) {
         Double amount = total.amount() * (percent / 100d);
-        return new Pair<>(amount.intValue(), total.currency());
+        return new Money(amount.intValue(), total.currency());
     }
 }
