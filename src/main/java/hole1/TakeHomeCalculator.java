@@ -11,37 +11,37 @@ class TakeHomeCalculator {
         this.percent = percent;
     }
 
-    Pair<Integer, String> netAmount(Pair<Integer, String> first, Pair<Integer, String>... rest) {
+    Money netAmount(Money first, Money... rest) {
 
-        List<Pair<Integer, String>> pairs = Arrays.asList(rest);
+        List<Money> monies = Arrays.asList(rest);
 
-        Pair<Integer, String> total = first;
+        Money total = first;
 
-        for (Pair<Integer, String> next : pairs) {
+        for (Money next : monies) {
             if (!next.second.equals(total.second)) {
                 throw new Incalculable();
             }
         }
 
-        for (Pair<Integer, String> next : pairs) {
-            total = new Pair<Integer, String>(total.first + next.first, next.second);
+        for (Money next : monies) {
+            total = new Money(total.first + next.first, next.second);
         }
 
         Double amount = total.first * (percent / 100d);
-        Pair<Integer, String> tax = new Pair<Integer, String>(amount.intValue(), first.second);
+        Money tax = new Money(amount.intValue(), first.second);
 
         if (total.second.equals(tax.second)) {
-            return new Pair<Integer, String>(total.first - tax.first, first.second);
+            return new Money(total.first - tax.first, first.second);
         } else {
             throw new Incalculable();
         }
     }
 
-    static class Pair<A, B> {
-        final A first;
-        final B second;
+    static class Money {
+        final Integer first;
+        final String second;
 
-        Pair(A first, B second) {
+        Money(Integer first, String second) {
             this.first = first;
             this.second = second;
         }
