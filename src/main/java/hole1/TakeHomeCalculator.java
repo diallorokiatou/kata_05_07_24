@@ -1,5 +1,7 @@
 package hole1;
 
+import java.util.Arrays;
+
 class TakeHomeCalculator {
 
     private final int percent;
@@ -10,11 +12,8 @@ class TakeHomeCalculator {
 
     Pair<Integer, String> netAmount(Pair<Integer, String>... rest) {
         String currency = rest[0].currency();
-        for (Pair<Integer, String> next : rest) {
-            if (!next.currency().equals(currency)) {
-                throw new Incalculable();
-            }
-        }
+
+        if(!Arrays.stream(rest).map(money -> money.currency()).allMatch(currencyOver -> currencyOver == currency)) throw  new Incalculable();
 
 
 
