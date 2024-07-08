@@ -18,32 +18,31 @@ class TakeHomeCalculator {
         Money total = first;
 
         for (Money next : monies) {
-            if (!next.currency.equals(total.currency)) {
+            if (!next.second.equals(total.second)) {
                 throw new Incalculable();
             }
         }
 
         for (Money next : monies) {
-            total = new Money(total.value + next.value, next.currency);
+            total = new Money(total.value + next.value, next.second);
         }
 
         Double amount = total.value * (percent / 100d);
-        Money tax = new Money(amount.intValue(), first.currency);
+        Money tax = new Money(amount.intValue(), first.second);
 
-        if (total.currency.equals(tax.currency)) {
-            return new Money(total.value - tax.value, first.currency);
-        } else {
-            throw new Incalculable();
+        if (total.second.equals(tax.second)) {
+            return new Money(total.value - tax.value, first.second);
         }
+        throw new Incalculable();
     }
 
     static class Money {
         final Integer value;
-        final String currency;
+        final String second;
 
-        Money(Integer value, String currency) {
+        Money(Integer value, String second) {
             this.value = value;
-            this.currency = currency;
+            this.second = second;
         }
 
     }
