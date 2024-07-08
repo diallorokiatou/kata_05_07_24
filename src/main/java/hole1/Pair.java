@@ -1,5 +1,5 @@
 package hole1;
 
-public record Pair<A, B>(A first, B second) {
+public record Pair<A, B>(A amount, B currency) {
 
 }
