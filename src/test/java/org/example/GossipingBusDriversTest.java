@@ -11,7 +11,7 @@ class GossipingBusDriversTest {
 
     @Test
     void no_gossip(){
-        List<Integer> routes = new ArrayList();
+        List<Integer> routes = new ArrayList({2,1,2}, {5,2,8});
         GossipingBusDrivers gossipingBusDrivers = new GossipingBusDrivers(routes);
 
         String numberOfGossipingStop = gossipingBusDrivers.numberOfGossipingStop();
