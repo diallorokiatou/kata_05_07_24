@@ -12,13 +12,10 @@ class TakeHomeCalculator {
 
     Pair<Integer, String> netAmount(Pair<Integer, String>... cart) {
         String currency = cart[0].currency();
-
-        if(!Arrays.stream(cart).map(Pair::currency).allMatch(currencyOver -> currencyOver == currency)){
+        if(!Arrays.stream(cart).map(Pair::currency).allMatch(currencyOver -> currencyOver.equals(currency))){
             throw  new Incalculable();
         }
-
         Pair<Integer, String> total = new Pair<>(Arrays.stream(cart).map(Pair::amount).reduce(0, Integer::sum), currency);
-
         Pair<Integer, String> tax = calculateTax(total);
         return new Pair<>(total.amount() - tax.amount(), currency);
     }
