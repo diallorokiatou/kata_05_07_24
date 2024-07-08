@@ -24,10 +24,10 @@ class TakeHomeCalculator {
         Double amount = total.value * (percent / 100d);
         Money tax = new Money(amount.intValue(), first.currency);
 
-        if (total.currency.equals(tax.currency)) {
-            return new Money(total.value - tax.value, first.currency);
+        if (!total.currency.equals(tax.currency)) {
+            throw new Incalculable();
         }
-        throw new Incalculable();
+        return new Money(total.value - tax.value, first.currency);
     }
 
     static class Money {
