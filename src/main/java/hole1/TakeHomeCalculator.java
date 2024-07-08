@@ -24,14 +24,14 @@ class TakeHomeCalculator {
         }
 
         for (Pair<Integer, String> next : pairs) {
-            total = new Pair<>(total.first + next.first, next.second);
+            total = new Pair<Integer, String>(total.first + next.first, next.second);
         }
 
         Double amount = total.first * (percent / 100d);
-        Pair<Integer, String> tax = new Pair<>(amount.intValue(), first.second);
+        Pair<Integer, String> tax = new Pair<Integer, String>(amount.intValue(), first.second);
 
         if (total.second.equals(tax.second)) {
-            return new Pair<>(total.first - tax.first, first.second);
+            return new Pair<Integer, String>(total.first - tax.first, first.second);
         } else {
             throw new Incalculable();
         }
