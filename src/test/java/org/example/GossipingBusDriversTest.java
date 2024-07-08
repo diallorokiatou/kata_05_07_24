@@ -18,6 +18,4 @@ class GossipingBusDriversTest {
 
         assertEquals("never",numberOfGossipingStop);
     }
-
-
 }
