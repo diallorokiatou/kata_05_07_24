@@ -2,7 +2,7 @@ package hole1;
 
 import java.util.Arrays;
 
-class TakeHomeCalculator {
+public class TakeHomeCalculator {
 
     private final int percent;
 
