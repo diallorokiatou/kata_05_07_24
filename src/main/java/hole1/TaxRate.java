@@ -5,8 +5,12 @@ import static hole1.Money.money;
 public final class TaxRate {
     private final int percent;
 
-    public TaxRate(int percent) {
+    private TaxRate(int percent) {
         this.percent = percent;
+    }
+
+    public static TaxRate taxRate(int percent) {
+        return new TaxRate(percent);
     }
 
     Money apply(Money total) {
