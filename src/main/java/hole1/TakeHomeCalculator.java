@@ -27,8 +27,7 @@ class TakeHomeCalculator {
 
         if (total.second().equals(tax.second())) {
             return new Pair<>(total.first() - tax.first(), first.second());
-        } else {
-            throw new Incalculable();
         }
+        throw new Incalculable();
     }
 }
