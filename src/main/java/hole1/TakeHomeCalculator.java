@@ -32,7 +32,7 @@ class TakeHomeCalculator {
         }
     }
 
-    static class Pair<A, B> {
+     static class Pair<A, B> {
         final A first;
         final B second;
 
