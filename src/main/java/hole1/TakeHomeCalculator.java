@@ -22,7 +22,6 @@ class TakeHomeCalculator {
 
     private Pair<Integer, String> calculateTax(Pair<Integer, String> total) {
         Double amount = total.amount() * (percent / 100d);
-        Pair<Integer, String> tax = new Pair<>(amount.intValue(), total.currency());
-        return tax;
+        return new Pair<>(amount.intValue(), total.currency());
     }
 }
