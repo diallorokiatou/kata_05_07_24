@@ -11,6 +11,8 @@ public class GossipingBusDrivers {
     }
 
     public String numberOfGossipingStop() {
+        int numberOfGossip = 0;
+
         return "never";
     }
 }
