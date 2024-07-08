@@ -19,8 +19,8 @@ class TakeHomeCalculator {
 
         Pair<Integer, String> total = new Pair<>(Arrays.stream(cart).map(Pair::amount).reduce(0, Integer::sum), currency);
 
-        Double amount = total.amount() * (percent / 100d);
-        Pair<Integer, String> tax = new Pair<>(amount.intValue(), currency);
+        double amount = total.amount() * (percent / 100d);
+        Pair<Integer, String> tax = new Pair<>((int) amount, currency);
         return new Pair<>(total.amount() - tax.amount(), currency);
     }
 }
