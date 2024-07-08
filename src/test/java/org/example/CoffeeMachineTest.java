@@ -15,10 +15,10 @@ class CoffeeMachineTest {
         coffeeMachine.addOrder(new Order(Drink.C, 2, 0.6));
 
         assertEquals("""
-                3 extra hot chocolat\s
+                3 extra hot tea
+                1 coffee
                 1 tea
-                1 coffee\s
-                Total amout ; 2,2\s""", coffeeMachine.printReport());
+                Total amout : 2.2""", coffeeMachine.printReport());
     }
 
     @Test

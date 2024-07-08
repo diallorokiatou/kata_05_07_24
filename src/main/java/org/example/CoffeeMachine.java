@@ -15,11 +15,15 @@ public class CoffeeMachine {
     }
 
     public String printReport(){
-        String reportString ;
+        String reportString ="";
         double amountTotal = orders.stream().map(order -> order.getDrinkType()).map(drink -> drink.amount()).reduce((aDouble, aDouble2) -> aDouble + aDouble2).get();
         for (Drink drink: Drink.values()) {
-            
+            long numberOfDrink = orders.stream().map(order -> order.getDrinkType()).filter(drinkType -> drink == drinkType).count();
+            if(numberOfDrink > 0) {
+                reportString += (numberOfDrink + " " + drink.getName() + "\n");
+            }
         }
-        return "Total amout : " + amountTotal;
+        reportString += "Total amout : " + amountTotal;
+        return reportString;
     }
 }
