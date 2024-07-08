@@ -11,6 +11,9 @@ public class Order {
         if(amount < drinkType.amount()) message = drinkType.amount() - amount + " euro is missing to making " + drinkType.description();
     }
 
+    public Drink getDrinkType() {
+        return drinkType;
+    }
 
     public String sendMessage(){
         if(message != null) return message;

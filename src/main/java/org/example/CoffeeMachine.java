@@ -15,6 +15,11 @@ public class CoffeeMachine {
     }
 
     public String printReport(){
-        return "";
+        String reportString ;
+        double amountTotal = orders.stream().map(order -> order.getDrinkType()).map(drink -> drink.amount()).reduce((aDouble, aDouble2) -> aDouble + aDouble2).get();
+        for (Drink drink: Drink.values()) {
+            
+        }
+        return "Total amout : " + amountTotal;
     }
 }

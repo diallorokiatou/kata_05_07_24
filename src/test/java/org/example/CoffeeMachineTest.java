@@ -17,8 +17,8 @@ class CoffeeMachineTest {
         assertEquals("""
                 3 extra hot chocolat\s
                 1 tea
-                 +1 coffee\s
-                 +Total amout ; 2,2\s""", coffeeMachine.printReport());
+                1 coffee\s
+                Total amout ; 2,2\s""", coffeeMachine.printReport());
     }
 
     @Test
