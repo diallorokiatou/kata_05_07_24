@@ -4,10 +4,9 @@ import java.util.List;
 
 public class GossipingBusDrivers {
 
-    private final List<Integer> routes;
+    private final List<Route> routes;
 
-    public GossipingBusDrivers(List<Integer> routes) {
-
+    public GossipingBusDrivers(List<Route> routes) {
         this.routes = routes;
     }
 
