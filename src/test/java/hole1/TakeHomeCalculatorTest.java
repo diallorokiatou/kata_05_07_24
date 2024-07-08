@@ -1,3 +1,4 @@
+
 package hole1;
 
 import org.junit.jupiter.api.Test;
@@ -9,12 +10,14 @@ public class TakeHomeCalculatorTest {
 
     @Test
     public void canCalculateTax() throws Exception {
-        Integer amount = new TakeHomeCalculator(10, new Money(40, "GBP"), new Money(50, "GBP"), new Money(60, "GBP")).netAmount().amount();
-        assertEquals(135, amount.intValue());
+        Integer first = new TakeHomeCalculator(10).netAmount(new TakeHomeCalculator.Pair<>(40, "GBP"), new TakeHomeCalculator.Pair<>(50, "GBP"), new TakeHomeCalculator.Pair<>(60, "GBP")).first;
+        assertEquals(135, first.intValue());
     }
 
     @Test
     public void cannotSumDifferentCurrencies() throws Exception {
-        assertThrows(Incalculable.class, () -> new TakeHomeCalculator(10, new Money(4, "GBP"), new Money(5, "USD")).netAmount());
+        assertThrows(Incalculable.class, () -> {
+            new TakeHomeCalculator(10).netAmount(new TakeHomeCalculator.Pair<>(4, "GBP"), new TakeHomeCalculator.Pair<>(5, "USD"));
+        });
     }
 }
